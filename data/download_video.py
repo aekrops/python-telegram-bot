@@ -22,3 +22,10 @@ def get_path_of_video_from_fb():
     path_on_cloud = "video/aesthetic.mp4"
     url = storage.child(path_on_cloud).get_url(None)
     return url
+
+
+def read_file(file_path):
+    storage.child(file_path).download(file_path, file_path)
+    with open(file_path, 'r') as f:
+        file = f.read()
+    return file
